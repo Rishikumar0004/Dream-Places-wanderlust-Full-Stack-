@@ -1,0 +1,258 @@
+/* use .btn-gold class for all buttons style */
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #0D1F1E !important;
+    /* color: #C0C0C0 !important; */
+    color: #D4AF37 !important;
+
+}
+.container{
+    flex: 1; /*flex:1; helps to grow very flexibly , it is used to fillup blank spaces and cover whole screen(because of different screen size)*/
+    margin-top: 50px;
+  }
+
+.navbar {
+    height: 5rem;
+    background-color: #0D1F1E !important; /* deep tropical green */
+    padding: 15px 30px !important;
+}
+.navbar a {
+  color: #FFFFFF !important;
+  text-decoration: none;
+  font-weight: 500 !important;
+  margin: 0 15px !important;
+}
+.navbar a:hover {
+  color: #D4AF37 !important; /* gold hover */
+}
+.logo{
+    height: 60px;
+    width: auto;
+}
+.navbar-toggler{
+    background-color:#D4AF37 !important ;
+}
+
+
+.btn-gold {
+  background-color: #0D1F1E !important; /* Tropical deep green */
+  color: #fff !important;
+  padding: 12px 24px !important;
+  border: 2px solid #D4AF37 !important;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-gold:hover {
+  background: #D4AF37 !important;
+  color: #0D1F1E !important;
+  box-shadow: 0 4px 15px rgba(0, 253, 8, 1) !important;
+}
+
+
+/* .fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+} */
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/* FOOTER */
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+.f-info{
+    text-align: center;
+    color: #222222;
+    background-color: #ebebeb;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.f-info-socials, .f-info-links, .f-info-brand{
+    width: 100%;
+    display: flex;       
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.f-info-socials i{
+    margin: 0.5rem;
+    font-size: 25px;
+}
+
+/* CARDS */
+.card {
+  /* max-width: 250px;
+  max-height: 300px; */
+  background: #FAF3E0 !important; /* sand/beige */
+  border-radius: 16px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  overflow: hidden !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  margin-bottom: 2rem !important;
+}
+
+.card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 8px 25px rgb(255, 174, 0) !important;
+}
+
+.single-line-limit { /*i use this only on index card title*/
+  white-space: nowrap; /* Prevents text from wrapping to the next line */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-body {
+  height: 6rem;
+  padding: 0.75rem !important;
+  color: #0D1F1E !important; /* text color */
+}
+.show-card-body {
+  height: auto;
+  padding: 0.75rem !important;
+  color: #0D1F1E !important; /* text color */
+}
+
+/* .card{
+    border:none !important ;
+    margin-bottom: 2rem;
+} */
+
+.card-img-top{
+    border-radius: 1rem !important;   /*use !important to override the custom style of Bootstrap*/
+    width: 100% !important;
+    object-fit: cover !important;
+}
+/* .card-body{
+    padding: 0 !important;
+} */
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.card-img-overlay {
+    font-size: 2rem;
+   
+}
+.overlay-text{
+    opacity: 0 ;
+    font-size: 40px;
+    color: #222222;
+    margin: 10px;
+}
+.overlay-text:hover{
+    opacity: 1;
+}
+.card-img-overlay:hover {
+    opacity: 0.3;
+    background-color: #ffffff;
+}
+
+.add-btn{
+    background-color: #fe424d !important;
+}
+
+/* Show Page */
+.show-img{
+    height: 40vh;
+}
+
+input:hover,
+textarea:hover {
+  border-color: #059669;       /* rich emerald */
+  background-color: #d1fae5;   /* soft leafy green */
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 1); /* subtle green glow */
+}
+
+/* Review */
+.review-form {
+  /* background: #f9f9f9 ; */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: 2rem;
+}
+
+.review-form h3 {
+  margin-bottom: 1rem;
+  /* color: #333; */
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.btn-submit {
+  background-color: #0D1F1E !important; /* Tropical deep green */
+  color: #fff !important;
+  padding: 12px 24px !important;
+  border: 2px solid #D4AF37 !important;
+  border-radius: 30px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+}
+
+
+.btn-submit:hover {
+  background: #D4AF37 !important;
+  color: #0D1F1E !important;
+  box-shadow: 0 4px 15px rgba(0, 253, 8, 1) !important;
+}
+
+
+.review-list {
+  list-style: none;
+  padding: 0;
+}
+
+.review-item {
+  background: #0D1F1E ;
+  box-shadow: 0 4px 8px rgb(156, 158, 155);
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+
+
+

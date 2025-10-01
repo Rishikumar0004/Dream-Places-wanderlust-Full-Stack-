@@ -1,0 +1,141 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+    <div class="row mt-4">
+        <div class="col-8 offset-2">
+    <h3><b><%=listing.title%></b> :</h3><br>
+    <div class="card">
+        <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="Location image">
+        <div class="card-body show-card-body">
+
+            <p class="card-text">
+              <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #000; padding: 5px 0;">
+                <span><b><%=listing.title%> &nbsp;&nbsp; </b></span>
+                <span>
+                  <b>Owner by- </b>
+                  <i><%= listing.owner ? listing.owner.email : "Unknown" %></i>
+                </span>
+
+              </div><br>
+                <p class="card-text"><b>Price - </b><i>&#8377; <%=listing.price.toLocaleString("en-IN")%></i></p>
+                <p class="card-text"><%=listing.description%></p>
+                <p class="card-text"><b>Location- </b><%=listing.location%></p>
+                <p class="card-text"><b>Country- </b><%=listing.country%></p>
+
+            </p>
+        </div>
+        </div>
+        <br><br>
+        <% if (currUser && listing.owner && currUser.email === listing.owner.email) { %>
+        <div class="btns">
+        <a href="/listings/<%=listing.id%>/edit" style="text-decoration: none;" class="btn-gold">👉   Update  Details...</a>
+        <br><br>
+        <form method="post" action="/listings/<%=listing.id%>?_method=DELETE">
+            <button class=" btn-gold mb-4">Remove Destination</button>
+        </form>
+        </div>
+       <% } %>
+    </div>
+    <hr />
+
+<hr />
+    <% if (currUser) {%>
+        <!-- Review Form -->
+    <div class="review-form col-8 offset-2">
+  <h3>Write a Review</h3>
+  <form action="/listings/<%= listing.id %>/reviews" method="POST" class="needs-validation" novalidate>
+    
+    <!-- Rating Field -->
+    <div class="form-group mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <select name="review[rating]" id="rating" class="form-control" required>
+        <option value="" selected disabled>Choose a rating...</option>
+        <option value="5">⭐ 5 - Excellent</option>
+        <option value="4">⭐ 4 - Very Good</option>
+        <option value="3">⭐ 3 - Good</option>
+        <option value="2">⭐ 2 - Fair</option>
+        <option value="1">⭐ 1 - Poor</option>
+      </select>
+      <div class="invalid-feedback">Please select a rating.</div>
+    </div>
+
+    <!-- Review Field -->
+    <div class="form-group mb-3">
+      <label for="review" class="form-label">Your Review</label>
+      <textarea 
+        name="review[Comment]" 
+        id="review" 
+        rows="4" 
+        placeholder="Share your experience..."
+        class="form-control"
+        required></textarea>
+        <div class="invalid-feedback">Share your experience!</div>
+        </div>
+            <button type="submit" class="btn-submit">Submit Review</button>
+        </form>
+    </div>
+    <hr><hr>
+    <%}%>
+    
+        <!-- Reviews Section -->
+        <div class="reviews-section col-8 offset-2 mb-8">
+          <h2 class="review-heading mb-4">Reviews</h2>
+          
+  <!-- Existing Reviews -->
+  <% if (listing.reviews.length > 0) { %>
+    <ul class="review-list ">
+      <% listing.reviews.forEach(review => { %>
+        <li class="review-item ">
+          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #000; padding: 5px 0;">
+            <span class="review-rating">⭐ <%= review.rating %>/5</span>
+            <span class="review-user"><strong><b>By ~ </b><i><%= review.author.email %></i></strong></span>
+          </div>
+          <!-- <p class="review-comment"><%= listing.reviews %></p> -->
+          <p class="review-comment"><%= review.Comment %></p>
+          
+
+          <!-- Action Buttons -->
+          <div class="review-actions mt-2">
+            <!-- Edit Review -->
+            <a href="/listings/<%= listing._id %>/reviews/<%= review._id %>/edit" 
+               class="btn btn-sm btn-warning">Edit</a>
+
+            <!-- Delete Review -->
+            <form action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" 
+                  method="POST" 
+                  style="display:inline;">
+              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+            </form>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  
+  <% } else { %>
+    <p>No reviews yet. Be the first to review!</p>
+  <% } %>
+</div>
+ 
+</div>
+
+    <script>
+(function () {
+  'use strict'
+  const forms = document.querySelectorAll('.needs-validation');
+
+  Array.from(forms).forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+
+
+
+</script>
+
+
+

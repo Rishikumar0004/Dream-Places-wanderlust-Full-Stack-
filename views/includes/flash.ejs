@@ -1,0 +1,81 @@
+<style>
+:root {
+  --navbar-height: 70px; /* apne navbar ki height ke hisaab se adjust karo */
+}
+
+/* container fix under navbar */
+.flash-container {
+  position: fixed;
+  top: var(--navbar-height); /* navbar ke bilkul neeche */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 980px;
+  z-index: 1100;
+  text-align: center;
+  padding: 0 20px;
+  animation: slideDown 0.6s ease forwards;
+}
+
+/* stylish alert box */
+.flash-container .alert {
+    margin: 0;
+  display: inline-block;
+  min-width: 320px;
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  border: none;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* success gradient */
+.flash-container .alert-success {
+  background: linear-gradient(135deg, #00b09b, #96c93d);
+}
+
+/* error gradient */
+.flash-container .alert-danger {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+/* slide-down animation */
+@keyframes slideDown {
+  from { opacity: 0; transform: translate(-50%, -30px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* fade-in text */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* dismiss button style */
+.flash-container .btn-close {
+  filter: invert(1); /* white close icon */
+  opacity: 0.8;
+}
+.flash-container .btn-close:hover {
+  opacity: 1;
+}
+</style>
+
+<div class="container mt-4 flash-container">
+<% if (success && success.length > 0) { %>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3 " role="alert">
+        <%= success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<% if (error && error.length > 0) { %>
+    <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+</div>
