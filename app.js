@@ -12,7 +12,7 @@ const mongoose = require("mongoose");
 
 const dbUrl = process.env.ATLASDB_URL;
 
-const Listing = require("../DREAM PLACES/models/listing.js");
+const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const ejsMate = require('ejs-mate');
 const wrapAsync = require("./utils/wrapAsync.js");
